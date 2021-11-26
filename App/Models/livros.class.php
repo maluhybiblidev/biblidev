@@ -11,8 +11,30 @@
  	
  	public function Index()
  	{
-        $this->query = "
-        SELECT count(b.idlivro) as `quant_locados`, 
+//        $this->query = "
+//        SELECT count(c.idlivro) as `quant_locados`, 
+//                a.idlivro, 
+//                a.isbn, 
+//                a.titulo, 
+//                a.autores,  
+//                a.ano_publicacao, 
+//                a.edicao, 
+//                a.editora, 
+//                a.paginas, 
+//                a.idcategoria, 
+//                a.quantidade,
+//                a.ativo,
+//                b.categoria 
+//        from livros as a
+//        join categorias_livros as b on b.idcategoria = a.idcategoria
+//        left join emprestimos_livros as c on c.idlivro = a.idlivro
+//        left join emprestimos as d on d.idemprestimo = c.idemprestimo
+//        where d.data_devolucao is null
+//         and a.delrg = '0'
+//        group by a.isbn";
+
+         $this->query = "
+         SELECT  c.quant_locados,
                 a.idlivro, 
                 a.isbn, 
                 a.titulo, 
@@ -24,14 +46,17 @@
                 a.idcategoria, 
                 a.quantidade,
                 a.ativo,
-                d.categoria 
+                b.categoria 
         from livros as a
-        left join emprestimos_livros as b on b.idlivro = a.idlivro
-        left join emprestimos as c on c.idemprestimo = b.idemprestimo
-        join categorias_livros as d on d.idcategoria = a.idcategoria
-        where c.data_devolucao is null
-         and a.delrg = '0'
-        group by a.isbn";
+        join categorias_livros as b on b.idcategoria = a.idcategoria
+        left join (
+                select a.idlivro, count(a.idlivro) as `quant_locados` 
+                from emprestimos_livros as a
+                left join emprestimos as b on b.idemprestimo = a.idemprestimo 
+                where b.data_devolucao is null
+                group by idlivro ) as c on c.idlivro = a.idlivro
+        where a.delrg = '0'
+        group by a.isbn";        
 
         $this->result = mysqli_query($this->SQL, $this->query) or die ( mysqli_error($this->SQL));
 
@@ -44,25 +69,51 @@
 
     public function GetLivrosLocacao(){
 
+//        $this->query = "
+//        SELECT count(b.idlivro) as `quant_locados`, 
+//                a.idlivro, 
+//                a.isbn, 
+//                a.titulo, 
+//                a.autores, 
+//                a.ano_publicacao, 
+//                a.edicao, 
+//                a.editora, 
+//                a.paginas, 
+//                a.idcategoria, 
+//                a.quantidade,
+//                a.ativo 
+//        from livros as a
+//        left join emprestimos_livros as b on b.idlivro = a.idlivro
+//        left join emprestimos as c on c.idemprestimo = b.idemprestimo
+//        where c.data_devolucao is null
+//          and a.delrg = '0'
+//          and a.ativo = '1'  
+//        group by a.isbn";
+
         $this->query = "
-        SELECT count(b.idlivro) as `quant_locados`, 
+         SELECT c.quant_locados,
                 a.idlivro, 
                 a.isbn, 
                 a.titulo, 
-                a.autores, 
+                a.autores,  
                 a.ano_publicacao, 
                 a.edicao, 
                 a.editora, 
                 a.paginas, 
                 a.idcategoria, 
                 a.quantidade,
-                a.ativo 
+                a.ativo,
+                b.categoria 
         from livros as a
-        left join emprestimos_livros as b on b.idlivro = a.idlivro
-        left join emprestimos as c on c.idemprestimo = b.idemprestimo
-        where c.data_devolucao is null
-          and a.delrg = '0'
-          and a.ativo = '1'  
+        join categorias_livros as b on b.idcategoria = a.idcategoria
+        left join (
+                select a.idlivro, count(a.idlivro) as `quant_locados` 
+                from emprestimos_livros as a
+                left join emprestimos as b on b.idemprestimo = a.idemprestimo 
+                where b.data_devolucao is null
+                group by idlivro ) as c on c.idlivro = a.idlivro
+        where a.delrg = '0'
+          and a.ativo = '1'
         group by a.isbn";
 
         $this->result = mysqli_query($this->SQL, $this->query) or die ( mysqli_error($this->SQL));

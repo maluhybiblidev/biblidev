@@ -122,6 +122,8 @@ function createPagination(){
 
 function searchBook(){
 
+  if(event.key === 'Enter') {
+
     var search = $("#searchBook").val();
 
 	$.ajax({
@@ -136,4 +138,15 @@ function searchBook(){
           		createPagination();
             }
           });
+  }
+}
+
+function clearSearchBook(){
+  
+  $("#searchBook").val("");
+
+  event.key = 'Enter';
+
+  searchBook();
+
 }
