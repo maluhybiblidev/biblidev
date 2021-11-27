@@ -83,10 +83,7 @@ echo '
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">
-
-
                 <a class="btn btn-sm bg-teal bt-cestolivros"><i class="fas fa-shopping-basket"></i> Cesto Livros <span class="qnt" id="quant_livros_cesto"> ['.$quantLivrosCesto.']</span></a>
-
               ';
 
               echo '
