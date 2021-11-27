@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-//require 'auth.php';
 require_once'Models/connect.php';
 
 $Post = filter_input_array(INPUT_POST, FILTER_DEFAULT);

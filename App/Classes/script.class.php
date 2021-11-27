@@ -15,10 +15,9 @@
         $head = '<!DOCTYPE html>
                     <html lang="en">
                     <head>
-                      <meta
                       <meta charset="utf-8">
                       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                      <meta http-equiv="content-language" content="pt-br" /> 
+                      <meta http-equiv="content-language" content="pt-br"/> 
                       <meta name="viewport" content="width=device-width, initial-scale=1">
                       <title>BibliDEV | Cockpit</title>
                       <!-- Google Font: Source Sans Pro -->
@@ -30,8 +29,7 @@
                       <!-- Theme style -->
                       <link rel="stylesheet" href="'.$url.'dist/css/adminlte.min.css">
                       <!-- overlayScrollbars -->
-                      <link rel="stylesheet" href="'.$url.'plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-                    
+                      <link rel="stylesheet" href="'.$url.'plugins/overlayScrollbars/css/OverlayScrollbars.min.css">                  
                       <!-- SweetAlert2 -->
                       <link rel="stylesheet" href="'.$url.'plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
                       <!-- Toastr -->
@@ -52,7 +50,6 @@
     }
 
  	}
-
 
   public function GetNavBar($url)
   {
@@ -307,7 +304,6 @@ $asideLocacao = '
 
 return $asideLocacao;
 
-
   }
 
   public function GetAsideUsuario($url)
@@ -369,16 +365,16 @@ return $asideLocacao;
           <!-- ********* -->
           <!-- OUsuarios -->
           <!-- ********* -->  
-';
+    ';
 
-return $asideUsuario;
+    return $asideUsuario;
 
   }
 
   public function GetAsideLivros($url)
   {
 
-$asideLivros = '
+    $asideLivros = '
           <!-- ******* -->
           <!-- ILivros -->
           <!-- ******* -->
@@ -440,15 +436,16 @@ $asideLivros = '
           <!-- ******* -->
           <!-- OLivros -->
           <!-- ******* -->
-';
+    ';
 
-return $asideLivros;    
+    return $asideLivros;    
     
   }
 
   public function GetAsideEmprestimos($url)
   {
-  $asideEmprestimos = '        
+
+    $asideEmprestimos = '        
           <!-- ************ -->
           <!-- IEmprestimos -->
           <!-- ************ -->          
@@ -487,15 +484,15 @@ return $asideLivros;
           <!-- ************ -->
           <!-- OEmprestimos -->
           <!-- ************ -->
-  ';
+    ';
 
-  return $asideEmprestimos;    
+    return $asideEmprestimos;    
   }  
 
   public function GetAsideFinal($url)
   {
 
-$asideFinal ='
+    $asideFinal ='
           <li class="nav-item">
             <a href="'.$url.'destroy.php" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -1009,9 +1006,9 @@ $asideFinal ='
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>';
+    </aside>';
 
-  return $asideFinal;
+    return $asideFinal;
 
   }  
 

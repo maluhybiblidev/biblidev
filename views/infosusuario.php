@@ -95,16 +95,6 @@ echo '
             </div>
             <!-- /.card -->
 
-
-
-
-
-
-
-
-
-
-
   <div class="card card-secondary card-outline">
     <div class="card-body">
       <div class="form-group">
@@ -118,25 +108,11 @@ echo '
       </div>
       -->
 
-
-
-
     </div>
     <!-- /.card-body -->
   </div>
   <!-- /.card -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
             <div class="col-md-6 ">
             <div class="card card-primary card-outline">
             <!--
@@ -225,7 +201,6 @@ echo '
                 </div>
                 -->
                 <!-- /.card-footer -->
-
               
             </div>
             </div>

@@ -168,17 +168,6 @@ echo '
   </div>
   <!-- /.card -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
             <div class="col-md-6 ">
             <div class="card card-primary">
               <div class="card-header">
@@ -332,8 +321,6 @@ echo '
                   <a href="index.php" type="submit" class="btn btn-default float-right">Cancelar</a>
                 </div>
                 <!-- /.card-footer -->
-
-              
             </div>
             </div>
                         </div>

@@ -109,9 +109,6 @@ if ($tableBody != "") {
 	$idLivro = $PostFilters['idlivro'];
 	$isbn = $PostFilters['isbn'];
 	$titulo = $PostFilters['titulo'];
-	
-	//$limiteLivros = $_SESSION['permissoes']['limite_livros_emprestimo'];
-	//$quant_livros_emprestados = $_SESSION['quant_livros_emprestados'];
 
 	$limiteLivros = $_SESSION['permissoes']['limite_livros_emprestimo'] - $_SESSION['quant_livros_emprestados'];
 

@@ -178,8 +178,6 @@ echo '          <!-- /.card -->
                     <div class="btn-group btn-group-sm">
                       <a href="editlivro.php?id='.$row['idlivro'].'" class="btn btn-info"><i class="fas fa-edit"></i> Editar</a>
                       <a data-id="'.$row['idlivro'].'" class="btn btn-danger btn-delete_livro"><i class="fas fa-trash"></i> Deletar</a>
-                      <!-- <a href="../../App/Database/deletelivro.php?id='.$row['idlivro'].'" class="btn btn-danger"><i class="fas fa-trash"></i></a> -->
-<!--<a href="" class="btn btn-danger" data-toggle="modal" data-target="#modal-default" ><i class="fas fa-trash"></i></a> -->
                     </div>
                  </td>
                  ';
@@ -263,18 +261,6 @@ echo '
       </div>
 ';
 
-//echo '
-//<script type="text/javascript">
-//    $(\'#modal-default\').on(\'show.bs.modal\', function (event) {                                                       
-//        var button = $(event.relatedTarget) // Button that triggered the modal
-//        var recipientId    = button.data(\'id\')
-//        var modal = $(this)
-//        modal.find(\'#idlivro\').val(recipientId)
-//    })
-//</script>
-//
-//';
-
 echo $Scripts->GetFooter("../");
 
 echo $Scripts->GetJavaScript("../", "inicio");
@@ -311,12 +297,9 @@ echo '
           $(this).html( \'<input type="text" placeholder="Buscar \'+title+\'" />\' );  
         }
     } );
-
-
           $("#datatable_default").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": true,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-
     "columns" : [
         {"visible" : false },
         {"visible" : false },
@@ -332,8 +315,6 @@ echo '
         {"visible" : false },
         null
     ],         
-            
-
             initComplete: function () {
     // Apply the search
     this.api().columns().every( function () {
@@ -347,7 +328,6 @@ echo '
         } );
     } );
 }
-
           }).buttons().container().appendTo(\'#datatable_default_wrapper .col-md-6:eq(0)\');
           $(\'#example2\').DataTable({
             "paging": true,

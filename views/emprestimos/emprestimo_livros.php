@@ -240,12 +240,9 @@ echo '
           $(this).html( \'<input type="text" placeholder="Buscar \'+title+\'" />\' );  
         }
     } );
-
-
           $("#datatable_default").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-
     "columns" : [
         {"visible" : false },
         null,
@@ -255,11 +252,9 @@ echo '
         null,
         null
     ],
-
-
-            initComplete: function () {
-    // Apply the search
-    this.api().columns().every( function () {
+      initComplete: function () {
+        // Apply the search
+        this.api().columns().every( function () {
         var that = this;
         $( \'input\', this.footer() ).on( \'keyup change clear\', function () {
             if ( that.search() !== this.value ) {
@@ -267,12 +262,9 @@ echo '
                     .search( this.value )
                     .draw();
             }
-        } );
-    } );
-}
-
-
-            
+          } );
+            } );
+          }
           }).buttons().container().appendTo(\'#datatable_default_wrapper .col-md-6:eq(0)\');
           $(\'#example2\').DataTable({
             "paging": true,

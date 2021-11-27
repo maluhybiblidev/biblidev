@@ -11,27 +11,6 @@
  	
  	public function Index()
  	{
-//        $this->query = "
-//        SELECT count(c.idlivro) as `quant_locados`, 
-//                a.idlivro, 
-//                a.isbn, 
-//                a.titulo, 
-//                a.autores,  
-//                a.ano_publicacao, 
-//                a.edicao, 
-//                a.editora, 
-//                a.paginas, 
-//                a.idcategoria, 
-//                a.quantidade,
-//                a.ativo,
-//                b.categoria 
-//        from livros as a
-//        join categorias_livros as b on b.idcategoria = a.idcategoria
-//        left join emprestimos_livros as c on c.idlivro = a.idlivro
-//        left join emprestimos as d on d.idemprestimo = c.idemprestimo
-//        where d.data_devolucao is null
-//         and a.delrg = '0'
-//        group by a.isbn";
 
          $this->query = "
          SELECT  c.quant_locados,
@@ -68,28 +47,6 @@
  	}
 
     public function GetLivrosLocacao(){
-
-//        $this->query = "
-//        SELECT count(b.idlivro) as `quant_locados`, 
-//                a.idlivro, 
-//                a.isbn, 
-//                a.titulo, 
-//                a.autores, 
-//                a.ano_publicacao, 
-//                a.edicao, 
-//                a.editora, 
-//                a.paginas, 
-//                a.idcategoria, 
-//                a.quantidade,
-//                a.ativo 
-//        from livros as a
-//        left join emprestimos_livros as b on b.idlivro = a.idlivro
-//        left join emprestimos as c on c.idemprestimo = b.idemprestimo
-//        where c.data_devolucao is null
-//          and a.delrg = '0'
-//          and a.ativo = '1'  
-//        group by a.isbn";
-
         $this->query = "
          SELECT c.quant_locados,
                 a.idlivro, 

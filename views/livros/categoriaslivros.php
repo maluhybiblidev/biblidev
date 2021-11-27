@@ -268,19 +268,6 @@ echo '
       </div>
 ';
 
-//echo '
-//<script type="text/javascript">
-//    $(\'#modal-default\').on(\'show.bs.modal\', function (event) {                                                       
-//        var button = $(event.relatedTarget) // Button that triggered the modal
-//        var recipientId    = button.data(\'id\')
-//        var modal = $(this)
-//        modal.find(\'#idlivro\').val(recipientId)
-//    })
-//</script>
-//
-//';
-
-
 echo $Scripts->GetFooter("../");
 
 echo $Scripts->GetJavaScript("../", "inicio");
@@ -309,7 +296,6 @@ echo '
       <!-- Page specific script -->
       <script>
         $(function () {
-
     // Setup - add a text input to each footer cell
     $(\'#datatable_default tfoot th\').each( function () {
         var title = $(this).text();
@@ -317,8 +303,6 @@ echo '
           $(this).html( \'<input type="text" placeholder="Buscar \'+title+\'" />\' );  
         }
     } );
-
-
           $("#datatable_default").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
@@ -335,10 +319,7 @@ echo '
             }
         } );
     } );
-}
-
-
-            
+}        
           }).buttons().container().appendTo(\'#datatable_default_wrapper .col-md-6:eq(0)\');
           $(\'#example2\').DataTable({
             "paging": true,

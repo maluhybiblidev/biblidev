@@ -18,7 +18,6 @@ foreach ($listaLivrosFiltrados as $row) {
               <!-- <form method="POST"> -->
               <div class="card bg-light d-flex flex-fill">
                 
-                     
                 <div class="card-header text-muted border-bottom-0">
                   <h2>'.$row['titulo'].'</h2>
                 </div>
@@ -53,8 +52,6 @@ foreach ($listaLivrosFiltrados as $row) {
                     <a class="btn btn-sm btn-primary bt-add" data-id="'.$row['idlivro'].'" data-isbn="'.$row['isbn'].'" data-titulo="'.$row['titulo'].'"><i class="fas fa-cart-plus"></i> Adicionar </a>
                   </div>
                 </div>
-              
-
 
                 </div>
               </div> 

@@ -3,6 +3,7 @@
 /**
  * Conexão com o banco de dados
  */ 
+
  class Connect
  {
  	
@@ -47,7 +48,6 @@
  				$_SESSION['usuario'] = $this->dados['usuario'];
  				$_SESSION['idtipoUsuario'] = $this->dados['idtipo_usuario'];
  				$_SESSION['nomeUsuario'] = $this->dados['nome']." ".$this->dados['sobrenome'];
- 				//$_SESSION['foto']      = $this->dados['imagem'];
 
  				if ($rememberme == "SIM") {
 		   			$expira = time() + 60*60*24*30;  					

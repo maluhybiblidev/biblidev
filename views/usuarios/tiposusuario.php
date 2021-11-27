@@ -185,32 +185,6 @@ echo '          <!-- /.card -->
 
 ';
 
-//echo '
-//<form action="../../App/Database/deletetipousuarios.php" method="POST">
-//      <div class="modal fade" id="modal-default">
-//        <div class="modal-dialog">
-//          <div class="modal-content">
-//            <div class="modal-header">
-//              <h4 class="modal-title">Deletar Livro?</h4>
-//              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-//                <span aria-hidden="true">&times;</span>
-//              </button>
-//            </div>
-//            <div class="modal-body">
-//              <p>Deseja deletar o livro selecionado?</p>
-//            </div>
-//            <input type="hidden" name="idlivro" id="idlivro"">
-//            <div class="modal-footer justify-content-between">
-//              <button type="submit" name="update" value="cancelar" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-//              <button type="submit" name="update" value="deletebook" class="btn btn-primary btn-delete_tipo_">Deletar</button>
-//            </div>
-//          </div>
-//          <!-- /.modal-content -->
-//        </div>
-//        <!-- /.modal-dialog -->
-//      </div>
-//</form>';
-
 echo'                 
               </div>
               <!-- /.card-body -->             
@@ -281,7 +255,6 @@ echo '
       <!-- Page specific script -->
       <script>
         $(function () {
-
     // Setup - add a text input to each footer cell
     $(\'#datatable_default tfoot th\').each( function () {
         var title = $(this).text();
@@ -289,12 +262,9 @@ echo '
           $(this).html( \'<input type="text" placeholder="Buscar \'+title+\'" />\' );  
         }
     } );
-
-
           $("#datatable_default").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-
     "columns" : [
         {"visible" : false },
         null,
@@ -306,7 +276,6 @@ echo '
         {"visible" : false },
         null
     ],            
-
             initComplete: function () {
     // Apply the search
     this.api().columns().every( function () {
@@ -320,9 +289,6 @@ echo '
         } );
     } );
 }
-
-
-            
           }).buttons().container().appendTo(\'#datatable_default_wrapper .col-md-6:eq(0)\');
           $(\'#example2\').DataTable({
             "paging": true,
