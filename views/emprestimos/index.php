@@ -176,13 +176,13 @@ echo '          <!-- /.card -->
                             if ($days_between_converted >= $limite_dias_emprestimo) {
                                 $prazo_devolucao = "100%";
                                 if ($days_between_converted > $limite_dias_emprestimo) {
-                                  $dias_devolucao = $dias_devolucao_converted." Dias Atraso Devolução";    
+                                  $dias_devolucao = $dias_devolucao_converted." Dia(s) Atraso Devolução";    
                                 } else {
-                                  $dias_devolucao = $dias_devolucao_converted." Dias para Devolução";      
+                                  $dias_devolucao = $dias_devolucao_converted." Dia(s) para Devolução";      
                                 }
                             } else {
                                 $prazo_devolucao = ( ( $days_between_converted / $limite_dias_emprestimo ) * 100 )."%";
-                                $dias_devolucao = $dias_devolucao_converted." Dias para Devolução";
+                                $dias_devolucao = $dias_devolucao_converted." Dia(s) para Devolução";
                                 
                             }
                         } else {
