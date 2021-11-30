@@ -11,7 +11,7 @@ O BibliDEV foi criado para ajudar em um problema encontrado em diversas escolas 
 <b>3</b> - Acesse o Localhost do seu WampServer e encontre seu projeto para utilização.<br>
 
 <i><b>(Opcional - Envio de e-mail alerta devolução livros)</b></i><br>
-<b>1</b> - Baixe o <a href="https://sourceforge.net/projects/send-mail/">SENDMail</a> e descompacte na pasta raiz do seu WAMPServer.<br>
+<b>1</b> - Baixe o <a href="https://www.glob.com.au/sendmail/sendmail.zip">SENDMail</a> e descompacte na pasta raiz do seu WAMPServer.<br>
 <b>2</b> - Configure o WampServer para referenciação ao SENDMail.<br>
 <b>3</b> - Configure o SENDMail com seu email e senha que irá realizar o envio dos e-mail alerta.<br>
 <b>4</b> - Configure o Agendador de tarefas para inicialização do PHP para execução do Script PHP que se encontra no projeto em 'App/Support/email.php'.<br>
