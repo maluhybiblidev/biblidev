@@ -22,7 +22,9 @@ $checked = ($CookieRememberme == 'SIM') ? 'Checked' : '';
   <!-- Theme style -->
   <link rel="stylesheet" href="views/dist/css/adminlte.min.css">
   <!-- jQuery -->
-  <script src="views/plugins/jquery/jquery.min.js"></script> 
+  <script src="views/plugins/jquery/jquery.min.js"></script>
+  <!-- Toastr -->
+  <link rel="stylesheet" href="views/plugins/toastr/toastr.min.css"> 
 
 </head>
 <body class="hold-transition login-page">
@@ -74,5 +76,16 @@ $checked = ($CookieRememberme == 'SIM') ? 'Checked' : '';
 <script src="views/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="views/dist/js/adminlte.min.js"></script>
+
+<!-- Toastr -->
+<script src="views/plugins/toastr/toastr.min.js"></script>
+<script>
+  $(document).Toasts('create', {
+    class: 'moda-lg bg-warning',
+    title: '<h4><b>Acesso Testes</b></h4>',
+    subtitle: '',
+    body: '<h4>Utilize os parametros abaixo para testes.</h4><h5><b>Usuário:</b> admin<br> <b>Senha:</b> admin</h5>'
+  });
+</script>
 </body>
 </html>
