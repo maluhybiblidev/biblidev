@@ -6,8 +6,7 @@
 
  class Connect
  {
-
-/*	
+ /*	
  	var $localhost = "localhost";
  	var $root = "root";  
  	var $passwd = "";

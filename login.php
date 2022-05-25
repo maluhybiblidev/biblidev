@@ -78,6 +78,7 @@ $checked = ($CookieRememberme == 'SIM') ? 'Checked' : '';
 <script src="views/dist/js/adminlte.min.js"></script>
 
 <!-- Toastr -->
+<!--
 <script src="views/plugins/toastr/toastr.min.js"></script>
 <script>
   $(document).Toasts('create', {
@@ -87,5 +88,6 @@ $checked = ($CookieRememberme == 'SIM') ? 'Checked' : '';
     body: '<h4>Utilize os parametros abaixo para testes.</h4><h5><b>Usuário:</b> admin<br> <b>Senha:</b> admin</h5>'
   });
 </script>
+-->
 </body>
 </html>
