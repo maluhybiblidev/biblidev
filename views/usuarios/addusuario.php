@@ -172,8 +172,11 @@ echo '
               </div>
               <div class="form-group">
                 <label for="cep" class="col-sm-2 col-form-label">CEP*</label>
-                <div class="col-sm-12">
+                <div class="input-group mb-0 col-sm-12">
                   <input type="text" maxlength = "9" class="form-control" id="cep" name="cep" placeholder="CEP">
+                  <button class="btn btn-outline-primary btn-buscar_cep">
+                    <span class="fas fa-search"/>
+                  </button>
                 </div>
               </div>
               <div class="form-group">

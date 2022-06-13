@@ -194,6 +194,131 @@ $(document).ready(function() {
 
 	})
 
+	//Buscar CEP
+   $("#cep").on('keyup', function (e) {
+      e.preventDefault();
+      if (e.keyCode === 13) {
+
+				var cep = document.getElementById("cep").value;
+				var success = false;
+
+				//Checar CEP
+				var msg = "";
+				if (cep == null || cep == "") {
+					msg = "Campo CEP é obrigatório";
+				} else {
+					if (!ValidateCEP(cep)){
+						msg = "CEP não é um CEP valido";
+					};			
+				};
+			
+				if(msg == ""){
+
+					var url = "http://viacep.com.br/ws/"+cep+"/json/";
+
+					$.ajax({
+		  	  		url: url,
+		  	  		type: 'GET',
+		  	  		dataType: 'json',
+		  			})
+		  			.done(function(data) {
+		  				if (data.erro == "true") {
+		  					msg = "CEP não encontrado"
+								alert("error", "&nbsp;"+msg+".");
+								return;				
+		  		
+		  				} else {
+								document.getElementById("rua").value = data.logradouro;
+								document.getElementById("complemento").value = data.complemento;
+								document.getElementById("bairro").value = data.bairro;
+								document.getElementById("estado").value = data.uf;
+								document.getElementById("cidade").value = data.localidade;  
+								msg = "CEP encontrado!"
+								alert("success", "&nbsp;"+msg);
+								return;
+
+		  				}	
+
+		  			})
+		  			.fail(function(data) {
+		  	  		msg = "Erro ao buscar CEP"
+							alert("error", "&nbsp;"+msg+".");
+							return;
+
+		  			})
+		  			.always(function(data) {
+		  			});
+
+					} else {
+						alert("error", "&nbsp;"+msg+".");
+						return;				
+
+					}
+		    }
+   });
+
+	//Buscar CEP
+	$('body').on('click', '.btn-buscar_cep', function(e){
+		e.preventDefault();
+
+		var cep = document.getElementById("cep").value;
+		var success = false;
+
+		//Checar CEP
+		var msg = "";
+		if (cep == null || cep == "") {
+			msg = "Campo CEP é obrigatório";
+		} else {
+			if (!ValidateCEP(cep)){
+				msg = "CEP não é um CEP valido";
+			};			
+		};
+		
+		if(msg == ""){
+
+  		var url = "http://viacep.com.br/ws/"+cep+"/json/";
+
+  		$.ajax({
+    	  url: url,
+    	  type: 'GET',
+    	  dataType: 'json',
+    	})
+    	.done(function(data) {
+    		if (data.erro == "true") {
+    			msg = "CEP não encontrado"
+					alert("error", "&nbsp;"+msg+".");
+					return;				
+    	
+    		} else {
+					document.getElementById("rua").value = data.logradouro;
+					document.getElementById("complemento").value = data.complemento;
+ 					document.getElementById("bairro").value = data.bairro;
+ 					document.getElementById("estado").value = data.uf;
+					document.getElementById("cidade").value = data.localidade;  
+					msg = "CEP encontrado!"
+					alert("success", "&nbsp;"+msg);
+					return;
+
+    		}	
+
+    	})
+    	.fail(function(data) {
+    	  msg = "Erro ao buscar CEP"
+				alert("error", "&nbsp;"+msg+".");
+				return;
+
+    	})
+    	.always(function(data) {
+    	});
+
+		} else {
+			alert("error", "&nbsp;"+msg+".");
+			return;				
+
+		}
+
+	})
+
 	//Modificar Senha Login
 	$('body').on('click', '.btn-modificar_senha_login', function(e){
 		e.preventDefault();

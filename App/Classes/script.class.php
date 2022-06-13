@@ -105,6 +105,16 @@
           </li>
           -->
           <li class="nav-item">
+            <a class="nav-link btn-increase" href="#" role="button">
+              <i class="fas fa-magnifying-glass-plus"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-decrease" href="#" role="button" disabled>
+              <i class="fas fa-magnifying-glass-minus"></i>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
               <i class="fas fa-expand-arrows-alt"></i>
             </a>
@@ -484,6 +494,14 @@ return $asideLocacao;
           <!-- ************ -->
           <!-- OEmprestimos -->
           <!-- ************ -->
+          <li class="nav-item">
+            <a href="'.$url.'Acessibilidade.php" class="nav-link">
+              <i class="nav-icon fas fa-info-circle"></i>
+              <p>
+                Acessibilidade
+              </p>
+            </a>
+          </li>
     ';
 
     return $asideEmprestimos;    
@@ -1060,6 +1078,7 @@ return $asideLocacao;
                       <script src="'.$url.'plugins/sweetalert2/sweetalert2.min.js"></script>
                       <!-- Toastr -->
                       <script src="'.$url.'plugins/toastr/toastr.min.js"></script>
+                      <script src="'.$url.'../App/js/generalcontrol.js"></script>
                       <script>
                         function alert(icon, message) {
                         var Toast = Swal.mixin({
