@@ -6,6 +6,10 @@
 
  class Connect
  {
+<<<<<<< HEAD
+=======
+ 	
+>>>>>>> 4149a97108743cb202903dc3bd93106c68fa4a4f
  /*	
  	var $localhost = "localhost";
  	var $root = "root";  
