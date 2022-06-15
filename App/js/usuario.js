@@ -214,7 +214,7 @@ $(document).ready(function() {
 			
 				if(msg == ""){
 
-					var url = "http://viacep.com.br/ws/"+cep+"/json/";
+					var url = "https://viacep.com.br/ws/"+cep+"/json/";
 
 					$.ajax({
 		  	  		url: url,
