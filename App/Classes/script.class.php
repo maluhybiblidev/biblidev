@@ -495,7 +495,7 @@ return $asideLocacao;
           <!-- OEmprestimos -->
           <!-- ************ -->
           <li class="nav-item">
-            <a href="'.$url.'Acessibilidade.php" class="nav-link">
+            <a href="'.$url.'acessibilidade.php" class="nav-link">
               <i class="nav-icon fas fa-info-circle"></i>
               <p>
                 Acessibilidade
