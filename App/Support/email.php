@@ -1,16 +1,8 @@
 <?php
 
-/*
-    $localhost = "localhost";
-    $root = "root";
-    $passwd = "";
-    $database = "biblidev";
-    $SQL;
-*/
-
- 	var $localhost = "ebh2y8tqym512wqs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
- 	var $root = "uvxjg4i24t0z2vdj";  
- 	var $passwd = "p3m9c9183vycqyne";
+ 	var $localhost = "localhost";
+ 	var $root = "root";
+ 	var $passwd = "";
  	var $database = "y1i2yj15pxwzclhd";
  	var $SQL;
 
