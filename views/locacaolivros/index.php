@@ -94,7 +94,7 @@ echo '
             <ol class="breadcrumb float-sm-none">
               <li class="breadcrumb-item">
                 <div class="input-group mb-3">
-                <input type="text" id="searchBook" name="table_search" class="form-control" style="min-width:500px;" placeholder="Busca por Título" onkeydown="searchBook()">
+                <input type="text" id="searchBook" name="table_search" class="form-control" style="min-width:250px;" placeholder="Busca por Título" onkeydown="searchBook()">
 
                 <!--                 <input type="text" id="searchBook" name="table_search" class="form-control" style="min-width:500px;" placeholder="Busca por Título" onkeyup="searchBook()"> -->
 
