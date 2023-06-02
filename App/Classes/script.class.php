@@ -494,6 +494,25 @@ return $asideLocacao;
           <!-- ************ -->
           <!-- OEmprestimos -->
           <!-- ************ -->
+          
+          <!-- *********** -->
+          <!-- IDashboards -->
+          <!-- *********** -->           
+          <li class="nav-item">
+            <a href="'.$url.'dashboards" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Dashboards
+              </p>
+            </a>
+          </li>
+          <!-- *********** -->
+          <!-- ODashboards -->
+          <!-- *********** -->   
+
+          <!-- *************** -->
+          <!-- IAcessibilidade -->
+          <!-- *************** -->           
           <li class="nav-item">
             <a href="'.$url.'acessibilidade.php" class="nav-link">
               <i class="nav-icon fas fa-info-circle"></i>
@@ -502,10 +521,60 @@ return $asideLocacao;
               </p>
             </a>
           </li>
+          <!-- *************** -->
+          <!-- OAcessibilidade -->
+          <!-- *************** -->           
     ';
 
     return $asideEmprestimos;    
   }  
+  
+  public function GetAsideDashboards($url)
+  {
+
+    $asideDashboards = '        
+
+          <!-- *********** -->
+          <!-- IDashboards -->
+          <!-- *********** -->           
+          <li class="nav-item">
+            <a href="'.$url.'dashboards" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Dashboards
+              </p>
+            </a>
+          </li>
+          <!-- *********** -->
+          <!-- ODashboards -->
+          <!-- *********** -->       
+    ';
+
+    return $asideDashboards;    
+  }
+
+  public function GetAsideAcessibilidade($url)
+  {
+
+    $asideAcessibilidade = '        
+          <!-- *************** -->
+          <!-- IAcessibilidade -->
+          <!-- *************** -->           
+          <li class="nav-item">
+            <a href="'.$url.'acessibilidade.php" class="nav-link">
+              <i class="nav-icon fas fa-info-circle"></i>
+              <p>
+                Acessibilidade
+              </p>
+            </a>
+          </li>
+          <!-- *************** -->
+          <!-- OAcessibilidade -->
+          <!-- *************** -->     
+    ';
+
+    return $asideAcessibilidade;    
+  }   
 
   public function GetAsideFinal($url)
   {
