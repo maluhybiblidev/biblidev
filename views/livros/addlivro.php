@@ -166,6 +166,14 @@ echo '
                      </select>
                     </div>
                   </div> 
+
+                    <div class="form-group row">
+                      <!-- textarea -->
+                      <div class="col-sm-12">
+                        <label>Resumo</label>
+                        <textarea id="resumo" name="resumo" class="form-control" rows="8" placeholder="Resumo ..."></textarea>
+                      </div>
+                    </div>
                                     
                   <div class="form-group row">
                     <label for="quantidade" class="col-sm-2 col-form-label">Quantidade*</label>

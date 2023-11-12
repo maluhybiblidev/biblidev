@@ -1,9 +1,9 @@
 <?php 
 
-require_once '../../App/auth.php';
+//require_once '../../App/auth.php';
 require_once '../../App/Classes/script.class.php';
 require_once '../../App/Models/livros.class.php';
-require_once '../../App/Models/categoriaslivros.class.php';
+//require_once '../../App/Models/categoriaslivros.class.php';
 
 echo $Scripts->GetHead("../", "inicio");
 
@@ -11,52 +11,52 @@ echo $Scripts->GetHead("../", "inicio");
 
 echo $Scripts->GetHead("../", "final");
 
-echo $Scripts->GetNavBar("../");
+//echo $Scripts->GetNavBar("../");
 
-echo $Scripts->GetAsideInicio("../");
+//echo $Scripts->GetAsideInicio("../");
 
-//Verificações de Permissão
-if ($_SESSION['permissoes']['limite_livros_emprestimo'] > 0) {
-  echo $Scripts->GetAsideLocacao("../");
-}
+////Verificações de Permissão
+//if ($_SESSION['permissoes']['limite_livros_emprestimo'] > 0) {
+//  echo $Scripts->GetAsideLocacao("../");
+//}
+//
+//if ($_SESSION['permissoes']['administrar_usuarios'] == 1) {
+//  echo $Scripts->GetAsideUsuario("../");  
+//}
+//
+//if ($_SESSION['permissoes']['administrar_livros'] == 1) {
+//  echo $Scripts->GetAsideLivros("../");
+//}
+//
+//if ($_SESSION['permissoes']['administrar_emprestimos'] == 1) {
+//  echo $Scripts->GetAsideEmprestimos("../");
+//}
 
-if ($_SESSION['permissoes']['administrar_usuarios'] == 1) {
-  echo $Scripts->GetAsideUsuario("../");  
-}
+//echo $Scripts->GetAsideFinal("../");
 
-if ($_SESSION['permissoes']['administrar_livros'] == 1) {
-  echo $Scripts->GetAsideLivros("../");
-}
-
-if ($_SESSION['permissoes']['administrar_emprestimos'] == 1) {
-  echo $Scripts->GetAsideEmprestimos("../");
-}
-
-echo $Scripts->GetAsideFinal("../");
-
-echo '<div class="content-wrapper">';
-
-if ($_SESSION['permissoes']['administrar_livros'] != 1) {
-          echo ' <div class="card-body">
-                <div class="callout callout-danger">
-                  <h5>Sem Autorização!</h5>
-
-                  <p>Você não possui autorização para acessar essa área do site.</p>
-                </div>
-                </div>';
-        
-echo '</div>';
-
-echo $Scripts->GetFooter("../");
-
-echo $Scripts->GetJavaScript("../", "inicio");
-
-  //Espaço para adicionar Scripts
-
-echo $Scripts->GetJavaScript("../", "final");
-
-  exit();
-  }; 
+//echo '<div class="content-wrapper">';
+//
+//if ($_SESSION['permissoes']['administrar_livros'] != 1) {
+//          echo ' <div class="card-body">
+//                <div class="callout callout-danger">
+//                  <h5>Sem Autorização!</h5>
+//
+//                  <p>Você não possui autorização para acessar essa área do site.</p>
+//                </div>
+//                </div>';
+//        
+//echo '</div>';
+//
+//echo $Scripts->GetFooter("../");
+//
+//echo $Scripts->GetJavaScript("../", "inicio");
+//
+//  //Espaço para adicionar Scripts
+//
+//echo $Scripts->GetJavaScript("../", "final");
+//
+//  exit();
+//  }; 
 
 echo '
             <!-- /.card -->
@@ -67,13 +67,15 @@ echo '
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editar Livro</h1>
+            <h1>Informações Livro</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+              <!--
               <li class="breadcrumb-item"><a href="../">Home</a></li>
               <li class="breadcrumb-item"><a href="index.php">Livros</a></li>
               <li class="breadcrumb-item active">Editar Livro</li>
+              -->
             </ol>
           </div>
         </div>
@@ -85,11 +87,7 @@ echo '
 
     if (isset($_GET['id'])) {
 		$idlivro = $_GET['id'];
-		$resp = $livros->editLivro($idlivro);
-    if(isset($resp['idlivro']) != null ){
-      $resp_categorias_livros_json = $categoriaslivros->GetCategoriasLivro();
-      $resp_categorias_livros_array = json_decode($resp_categorias_livros_json, true);
-    }
+		$resp = $livros->informacoesLivro($idlivro);
 
     echo '
             <!-- Horizontal Form -->
@@ -111,71 +109,59 @@ echo '
                   <div class="form-group row">
                     <label for="titulo" class="col-sm-2 col-form-label">Título*</label>
                     <div class="col-sm-12">
-                      <input type="text" maxlength="120" class="form-control" name="titulo" id="titulo" placeholder="Título" value="'.$resp['titulo'].'">
+                      <input type="text" maxlength="120" class="form-control" name="titulo" id="titulo" placeholder="Título" value="'.$resp['titulo'].'" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="autores" class="col-sm-2 col-form-label">Autores*</label>
                     <div class="col-sm-12">
-                      <input type="text" maxlength="120" class="form-control" name="autores" id="autores" placeholder="Autores" value="'.$resp['autores'].'">
+                      <input type="text" maxlength="120" class="form-control" name="autores" id="autores" placeholder="Autores" value="'.$resp['autores'].'" disabled>
                     </div>
                   </div>  
                   <div class="form-group row">
                     <label for="ano_publicacao" class="col-sm-2 col-form-label">Ano</label>
                     <div class="col-sm-12">
                       <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number"
-                            maxlength = "4" class="form-control" id="ano_publicacao" name="ano_publicacao" placeholder="Ano Publicacao" value="'.$resp['ano_publicacao'].'">
+                            maxlength = "4" class="form-control" id="ano_publicacao" name="ano_publicacao" placeholder="Ano Publicacao" value="'.$resp['ano_publicacao'].'" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="edicao" class="col-sm-2 col-form-label">Edição</label>
                     <div class="col-sm-12">
                       <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number"
-                            maxlength = "2" class="form-control" id="edicao" name="edicao" placeholder="Edição" value="'.$resp['edicao'].'">
+                            maxlength = "2" class="form-control" id="edicao" name="edicao" placeholder="Edição" value="'.$resp['edicao'].'" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="editora" class="col-sm-2 col-form-label">Editora</label>
                     <div class="col-sm-12">
-                      <input type="text" maxlength="120" class="form-control" id="editora" name="editora" placeholder="Editora" value="'.$resp['editora'].'">
+                      <input type="text" maxlength="120" class="form-control" id="editora" name="editora" placeholder="Editora" value="'.$resp['editora'].'" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="paginas" class="col-sm-2 col-form-label">Páginas</label>
                     <div class="col-sm-12">
                       <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number"
-                            maxlength = "4" class="form-control" id="paginas" name="paginas" placeholder="Páginas" value="'.$resp['paginas'].'">
+                            maxlength = "4" class="form-control" id="paginas" name="paginas" placeholder="Páginas" value="'.$resp['paginas'].'" disabled>
                     </div>
                   </div>
+                  
+                  <div class="form-group row">
+                    <label for="categoriavis" class="col-sm-2 col-form-label">Categoria</label>
+                    <div class="col-sm-12">
+                      <input type="text" maxlength="60" class="form-control" id="categoriavis" name="categoriavis" placeholder="Categoria" value="'.$resp['categoria'].'" disabled>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <div class="form-group row">
+                      <label>Resumo</label>
+                      <textarea id="resumo" name="resumo" class="form-control" rows="5" placeholder="Resumo ..." disabled>'.$resp['resumo'].'
+                      </textarea>
+                    </div>
+                  </div>                  
+
                   <!--
-                  <div class="form-group row">
-                    <label for="categoria" class="col-sm-2 col-form-label">Categoria</label>
-                    <div class="col-sm-12">
-                      <input type="text" maxlength="60" class="form-control" id="categoria" name="categoria" placeholder="Categoria" value="">
-                    </div>
-                  </div>
-                  -->
-                  <div class="form-group row">
-                    <label for="categoria" class="col-sm-2 col-form-label">Categoria*</label>
-                    <div class="col-sm-12">
-                      <select class="custom-select form-control-border" id="categoria" name="categoria">
-                            <option value=""></option>';
-                      foreach ($resp_categorias_livros_array as $row) {
-
-                          if (isset($row['idcategoria']) != NULL) {
-
-                            echo'
-                                <option value="'.$row['idcategoria'].'">'.$row['categoria'].'</option>
-                                ';
-                          }
-
-                      }
-
-                      echo'
-                     </select>
-                    </div>
-                  </div> 
-
                   <div class="form-group row">
                     <label for="quantidade" class="col-sm-2 col-form-label">Quantidade*</label>
                     <div class="col-sm-12">
@@ -183,6 +169,7 @@ echo '
                             maxlength = "3" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade" value="'.$resp['quantidade'].'">
                     </div>
                   </div>
+
                   <div class="form-group row">
                     <label for="ativo" class="col-sm-2 col-form-label">Ativo*</label>
                     <div class="col-sm-12">
@@ -192,30 +179,20 @@ echo '
                      </select>
                     </div>
                   </div>
-
-                  <div class="col-sm-12">
-                    <div class="form-group row">
-                      <label>Resumo</label>
-                      <textarea id="resumo" name="resumo" class="form-control" rows="5" placeholder="Resumo...">'.$resp['resumo'].'
-                      </textarea>
-                    </div>
-                  </div>   
-
+                  
                      <script>
                       function setValueList(id, value) {
                         document.getElementById(id).value=value;
                       }
                       setValueList("ativo", '.$resp['ativo'].');
                       setValueList("categoria", '.$resp['idcategoria'].');
-                     </script>                  
-                  <input type="hidden" id="iduser" name="iduser" value="'.$idUsuario.'">
+                     </script> 
+                     -->                 
+                  
                   <input type="hidden" id="idlivro" name="idlivro" value="'.$idlivro.'">
-                  <p class="text-muted text-center"><strong>Campos com "*" são obrigatórios</strong></p>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <a type="submit" name="update" value="updatebook" class="btn btn-info btn-edit_livro">Salvar Modificações</a>
-                  <a href="index.php" type="submit" class="btn btn-default float-right">Cancelar</a>
                 </div>
                 <!-- /.card-footer -->
             </div>
