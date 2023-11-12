@@ -14,9 +14,10 @@ $(document).ready(function() {
 		var paginas = document.getElementById("paginas").value;
 		var categoria = document.getElementById("categoria").value;
 		var quantidade = document.getElementById("quantidade").value;
+		var resumo = document.getElementById("resumo").value;
 		var iduser = document.getElementById("iduser").value;
 		var ativo = "1";
-		var msg = "";
+		var msg = ""; 
 
 		msg = CheckFields(isbn, titulo, autores, categoria, quantidade, ativo);
 		
@@ -37,7 +38,8 @@ $(document).ready(function() {
 					categoria: categoria,
 					quantidade: quantidade,
 					iduser: iduser,
-					ativo: ativo
+					ativo: ativo,
+					resumo: resumo
 					};
 
 		var url = "../../App/Database/insertlivro.php";
@@ -69,7 +71,7 @@ $(document).ready(function() {
 
 	})
 
-	//Editar Usuário
+	//Editar Livros
 	$('body').on('click', '.btn-edit_livro', function(e){
 		e.preventDefault();
 
@@ -85,6 +87,7 @@ $(document).ready(function() {
 		var categoria = document.getElementById("categoria").value;
 		var quantidade = document.getElementById("quantidade").value;
 		var ativo = document.getElementById("ativo").value;
+		var resumo = document.getElementById("resumo").value;
 		var msg = "";
 
 		//Usuário Logado Sistema
@@ -110,7 +113,8 @@ $(document).ready(function() {
 					categoria: categoria,
 					quantidade: quantidade,
 					iduser: iduser,
-					ativo: ativo
+					ativo: ativo,
+					resumo: resumo
 					};
 
 		var url = "../../App/Database/insertlivro.php";
