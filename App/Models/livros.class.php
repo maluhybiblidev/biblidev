@@ -86,7 +86,8 @@
     public function EditLivro($idlivro)
     {
 
-        $this->query = "SELECT * FROM `LIVROS` 
+        $this->query = "SELECT *
+                        FROM `LIVROS`
                         WHERE `idlivro` = '$idlivro'";
         if ($this->result = mysqli_query($this->SQL, $this->query) or die ( mysqli_error($this->SQL))){
             
@@ -103,6 +104,7 @@
                 $idcategoria = $row['idcategoria'];
                 $quantidade = $row['quantidade'];
                 $ativo = $row['ativo'];
+                $resumo = $row['resumo'];
 
                                 $livro = array(
                                     "idlivro" => $idlivro,
@@ -115,7 +117,8 @@
                                     "paginas" => $paginas,
                                     "idcategoria" => $idcategoria,
                                     "quantidade" => $quantidade,
-                                    "ativo" => $ativo
+                                    "ativo" => $ativo,
+                                    "resumo" => $resumo
                                 );
 
                                 return $livro;
@@ -127,6 +130,58 @@
         }
 
     }
+
+    public function informacoesLivro($idlivro)
+    {
+
+        $this->query = "SELECT a.*,
+                               b.categoria
+                        FROM `LIVROS` as a
+                        join categorias_livros as b on b.idcategoria = a.idcategoria
+                        WHERE `idlivro` = '$idlivro'";
+        if ($this->result = mysqli_query($this->SQL, $this->query) or die ( mysqli_error($this->SQL))){
+            
+            if ($row = mysqli_fetch_array($this->result)) {
+                
+                $idlivro =  $row['idlivro'];
+                $isbn = $row['isbn'];
+                $titulo = $row['titulo'];
+                $autores = $row['autores'];
+                $ano_publicacao = $row['ano_publicacao'];
+                $edicao = $row['edicao'];
+                $editora = $row['editora'];
+                $paginas = $row['paginas'];
+                $idcategoria = $row['idcategoria'];
+                $quantidade = $row['quantidade'];
+                $ativo = $row['ativo'];
+                $resumo = $row['resumo'];
+                $categoria = $row['categoria'];
+
+                                $livro = array(
+                                    "idlivro" => $idlivro,
+                                    "isbn" => $isbn,
+                                    "titulo" => $titulo,
+                                    "autores" => $autores,
+                                    "ano_publicacao" => $ano_publicacao,
+                                    "edicao" => $edicao,
+                                    "editora" => $editora,
+                                    "paginas" => $paginas,
+                                    "idcategoria" => $idcategoria,
+                                    "quantidade" => $quantidade,
+                                    "ativo" => $ativo,
+                                    "resumo" => $resumo,
+                                    "categoria" => $categoria
+                                );
+
+                                return $livro;
+
+            }
+
+        } else {
+            return 0;
+        }
+
+    }    
 
     public function DeleteLivro($idlivro)
     {
@@ -180,9 +235,10 @@
                         '".$livro['editora']."',
                         '".$livro['paginas']."',
                         '".$livro['categoria']."',
-                        '".$livro['quantidade']."'";
+                        '".$livro['quantidade']."',
+                        '".$livro['resumo']."'";
     
-            $this->query = "INSERT INTO LIVROS (`isbn`, `titulo`, `autores`, `ano_publicacao`, `edicao`, `editora`, `paginas`, `idcategoria`, `quantidade`) 
+            $this->query = "INSERT INTO LIVROS (`isbn`, `titulo`, `autores`, `ano_publicacao`, `edicao`, `editora`, `paginas`, `idcategoria`, `quantidade`, `resumo`) 
                             VALUES (".$values.")";
     
             if($this->result = mysqli_query($this->SQL, $this->query) or die(mysqli_error($this->SQL))){
@@ -228,7 +284,8 @@
                                                 `paginas`= '".$livro['paginas']."',
                                                 `idcategoria`= '".$livro['categoria']."',
                                                 `quantidade`= '".$livro['quantidade']."', 
-                                                `ativo`='".$livro['ativo']."'  
+                                                `ativo`='".$livro['ativo']."',
+                                                `resumo`='".$livro['resumo']."'  
                             WHERE `idlivro` = '".$livro['idlivro']."'";
 
             if($this->result = mysqli_query($this->SQL, $this->query) or die(mysqli_error($this->SQL))){
