@@ -26,6 +26,7 @@ if ($PostFilters['identCall'] == 'insertLivro'){
 						"paginas"=> $PostFilters['paginas'],
 						"categoria"=> $PostFilters['categoria'],
 						"quantidade"=> $PostFilters['quantidade'],
+						"resumo"=> $PostFilters['resumo'],
 						"idusuario"=> $PostFilters['iduser']
 					);
 	
@@ -48,11 +49,12 @@ if ($PostFilters['identCall'] == 'insertLivro'){
 					"categoria"=> $PostFilters['categoria'],
 					"quantidade"=> $PostFilters['quantidade'],
 					"ativo"=> $PostFilters['ativo'],
+					"resumo"=> $PostFilters['resumo'],
 					"idusuario"=> $PostFilters['iduser'] 
 				);
 
 	$resp_json = $livros->UpdateLivro($livro);
-	$message = json_decode($resp_json, true);		
+	$message = json_decode($resp_json, true);	 	
 
 	echo json_encode($message);
 
