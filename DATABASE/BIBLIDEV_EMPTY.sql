@@ -129,6 +129,7 @@ CREATE TABLE `livros` (
   `disponivel` tinyint(1) DEFAULT '1',
   `ativo` tinyint(1) DEFAULT '1',
   `delrg` tinyint(1) DEFAULT '0',
+  `resumo` longtext,
   PRIMARY KEY (`isbn`),
   UNIQUE KEY `idlivro` (`idlivro`),
   KEY `idcategoria` (`idcategoria`),
